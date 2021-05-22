@@ -1,0 +1,14 @@
+.Side{
+    width: 30%;
+}
+.Left{
+    background-color: blueviolet;
+}
+.Right {
+    background-color: goldenrod;
+}
+@media(max-width: 811px) {
+    .Side {
+        display: none;
+    }
+  }

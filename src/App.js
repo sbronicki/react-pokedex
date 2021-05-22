@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
-import Card from './components/Card/Card'
+import Middle from './components/Middle/Middle'
+import Side from './components/Side/Side'
 import './App.css';
 
 function App() {
@@ -26,9 +27,9 @@ function App() {
 
   return (
     <div className="App">
-      <Card />
-      <Card Middle={true} data={pokeData} />
-      <Card />
+      <Side Left />
+      <Middle data={pokeData} />
+      <Side Right />
     </div>
   );
 }

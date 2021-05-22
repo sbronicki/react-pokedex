@@ -1,7 +1,7 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState } from 'react'
 
 import Selectbar from '../SelectBar/Selectbar'
-import classes from './Card.module.css'
+import classes from './Middle.module.css'
 
 const titleCase = (str) => {
     return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
@@ -58,18 +58,15 @@ const Card = (props) => {
     }
 
     return(
-        <div className={classes.Card}>
-            {props.Middle ? 
-                <Fragment>
-                    <h1>Choose Pokémon!</h1>
-                    <Selectbar onChangeHandler={onChangeHandler} data={props.data} />
-                    <h2>{pokeData.id}. {titleCase(pokeData.name)}</h2>
-                    {pokeData.types[1] ? 
-                        <h2>Types: {titleCase(pokeData.types[0])}, {titleCase(pokeData.types[1])}</h2> 
-                        : <h2>Type: {titleCase(pokeData.types[0])}</h2>}
-                    <img src={pokeData.sprite} alt={pokeData.name} />
-                    <p>{pokeData.summary}</p>
-                </Fragment>  : <div>Side</div>}
+        <div className={classes.Middle}>
+            <h1>Choose Pokémon!</h1>
+            <Selectbar onChangeHandler={onChangeHandler} data={props.data} />
+            <h2>{pokeData.id}. {titleCase(pokeData.name)}</h2>
+            {pokeData.types[1] ? 
+                <h2>Types: {titleCase(pokeData.types[0])}, {titleCase(pokeData.types[1])}</h2> 
+                : <h2>Type: {titleCase(pokeData.types[0])}</h2>}
+            <img src={pokeData.sprite} alt={pokeData.name} />
+            <p>{pokeData.summary}</p>
         </div>
     )
 }
