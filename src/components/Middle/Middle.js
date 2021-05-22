@@ -16,6 +16,8 @@ const Card = (props) => {
         sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
         summary: "A strange seed was planted on its back at birth. The plant sprouts and grows with this pokémon."
     })
+    const [typeColor, setTypeColor] = useState(
+    '#e1ebf5', [])
 
     const fetchSummaryHandler = async (summaryURL) => {
         const response = await fetch(summaryURL)
@@ -54,11 +56,63 @@ const Card = (props) => {
             summary: summary 
         }
 
+      
+
+        switch (transformedData.types[0]) {
+			case 'grass':
+			setTypeColor('#78C850');
+				break;
+			case 'water':
+				setTypeColor('#6890F0');
+				break;
+			case 'fire':
+				setTypeColor('#F08030');
+				break;
+			case 'electric':
+				setTypeColor('#F8D030');
+				break;
+			case 'ground':
+				setTypeColor('#E0C068');
+				break;
+			case 'rock':
+				setTypeColor('#B8A038');
+				break;
+			case 'poison':
+				setTypeColor('#A040A0');
+				break;
+			case 'psychic':
+				setTypeColor('#F85888');
+				break;
+			case 'bug':
+				setTypeColor('#A8B820');
+				break;
+			case 'normal':
+				setTypeColor('#A8A878');
+				break;
+			case 'flying':
+				setTypeColor('#A890F0');
+				break;
+			case 'fighting':
+				setTypeColor('#C03028');
+				break;
+			case 'ice':
+				setTypeColor('#98D8D8');
+				break;
+			case 'ghost':
+				setTypeColor('#705898');
+				break;
+			case 'dragon':
+				setTypeColor('#7038F8');
+				break;
+            default :
+                setTypeColor('#e1ebf5')
+		}
+
         setPokeData(transformedData)
     }
 
     return(
-        <div className={classes.Middle}>
+        <div className={classes.Middle} style={{backgroundColor: typeColor}}>
             <h1>Choose Pokémon!</h1>
             <Selectbar onChangeHandler={onChangeHandler} data={props.data} />
             <h2>{pokeData.id}. {titleCase(pokeData.name)}</h2>

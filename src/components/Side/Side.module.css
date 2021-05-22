@@ -1,13 +1,18 @@
 .Side{
     width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.Left{
-    background-color: blueviolet;
+.Side img {
+    min-height: 200px;
+    max-height: 350px;
 }
-.Right {
-    background-color: goldenrod;
+.Side p {
+    margin: auto;
+    width: 80%;
 }
-@media(max-width: 811px) {
+@media(max-width: 1100px) {
     .Side {
         display: none;
     }

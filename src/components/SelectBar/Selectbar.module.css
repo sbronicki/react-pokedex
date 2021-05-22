@@ -1,3 +1,8 @@
 .Selectbar {
     background-color: #f0f5f9;
+    max-width: 200px;
+    height: 5%;
+    padding-left: 5%;
+    border-radius: 5px;
+    border: black 2px solid;
 }
